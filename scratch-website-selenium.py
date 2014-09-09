@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 from selenium.common.exceptions import ElementNotVisibleException
 import csv
@@ -7,11 +6,11 @@ import logging
 
 logger = logging.basicConfig(filename="students-created.log", level=logging.INFO)
 
-monthDict={'01':"January", '02':"February", '03':"March", '04':"April",
-           '05':"May", '06':"June", '07':"July", '08':"August",
-           '09':"September", '10':"October", '11':"November", '12':"December"}
+monthDict = {'01': "January", '02': "February", '03': "March", '04': "April",
+             '05': "May", '06': "June", '07': "July", '08': "August",
+             '09': "September", '10': "October", '11': "November", '12': "December"}
 
-with open("students.csv", 'rb') as file:
+with open("students.csv", 'rt') as file:
     students = csv.reader(file)
     
     driver = webdriver.Chrome()
@@ -58,8 +57,7 @@ with open("students.csv", 'rb') as file:
                 driver.close()
                 driver = webdriver.Chrome()
                 driver.get("http://scratch.mit.edu")
-                print "ElementNotVisibleException"
-                print student
+                logger.error("ElementNotVisibleException while processing " + student)
             else:
                 completed = True
 
