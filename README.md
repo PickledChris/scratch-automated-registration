@@ -3,13 +3,11 @@ There is no method of creating accounts in bulk for Scratch 2. However, schools 
 ##Requirements
 - Python 3 interpreter obtained from here: https://www.python.org/download
 - Python Selenium bindings. After installing Python, type “pip install selenium” at the command line.
-- Selenium ChromeDriver obtained from here:
-- Copy the chromedriver.exe file into the directory with the downloaded scratch-automated.py file.
-- CSV file of students with username, password, email address and date of birth in DD/MM/YYYY format, with the header row removed.
-- In London, LGFL schools can download the data from their Atomwide support site and format before using. The file needs to be saved as a CSV file.
-The filename must be export.csv
+- Selenium ChromeDriver obtained from here: http://chromedriver.storage.googleapis.com/index.html 2.10 is the latest version at the time of writing.
+- CSV file of students with username, password, email address and date of birth in DD/MM/YYYY format, with the header row removed. The file should be called students.csv 
 
 ##Running the script
+- Clone or download and unzip the script from the right hand side of this page
 - Copy students.csv to the scratch-automated-registration directory
 - Extract the chromedriver.exe from the zip file and copy it into the scratch-automated-registration directory
 - Run the script by typing python scratch-website-selenium.py into the command line
@@ -22,7 +20,7 @@ If the username or email address is already in use (very unlikely for LGFL USO u
 
 ##LGFL specific instructions
 
-Export, create students.csv, delete all columns that aren’t “full USO username”, password, email, DOB. Delete the header.
+Export, create students.csv, delete all columns that aren’t “full USO username”, password, email, DOB. Delete the header. In London, LGFL schools can download the data from their Atomwide support site and format before using.
 
 Scratch does not allow full stops in usernames, but LGFL USO usernames include them. Full stops are replaced with hyphens (-). For example a username:
 >abcde001.999
@@ -31,7 +29,7 @@ will become:
 
 >abcde001-999
 
-For new joiners,  open Atomwide in user view, select the students, add the “Latest move or create” column and export to Excel. You can then easily delete all students who joined before the previous run before exporting to csv.
+For new joiners,  open Atomwide in user view, select the students, select the “Latest move or create” option and export to Excel. You can then easily delete all students who joined before the previous run before exporting to csv.
 
 ##Technical Notes
 The instructions provided are for Windows, however it should work on Mac OSX or Linux
